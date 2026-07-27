@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diablo Travieso | Editorial Independiente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           VARIABLES DE DISEÑO (ESTÉTICA BLACK & WHITE)
+           ========================================== */
+        :root {
+            --fondo-oscuro: #000000; 
+            --texto-blanco: #FFFFFF; 
+            --naranja-oxido: #C84C19; 
+            --rojo-sangre: #D63220; 
+            --gris-texto: #CCCCCC;
+            --fuente-titulos: 'Bebas Neue', sans-serif;
+            --fuente-textos: 'Lora', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--fondo-oscuro);
+            color: var(--texto-blanco);
+            font-family: var(--fuente-textos);
+            line-height: 1.7;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3, h4 { font-family: var(--fuente-titulos); letter-spacing: 1.5px; font-weight: normal; color: var(--texto-blanco); }
+
+        /* ==========================================
+           CABECERA Y MENÚ HAMBURGUESA
+           ========================================== */
+        header {
+            background-color: var(--fondo-oscuro);
+            border-bottom: 3px solid var(--texto-blanco);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-grupo-izq {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            color: var(--texto-blanco);
+            text-decoration: none;
+            font-family: var(--fuente-titulos);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 55px;
+            width: 55px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .btn-cabecera {
+            color: var(--texto-blanco);
+            border: 1px solid var(--texto-blanco);
+            padding: 5px 15px;
+            text-decoration: none;
+            font-family: var(--fuente-titulos);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cabecera:hover {
+            background-color: var(--texto-blanco);
+            color: var(--fondo-oscuro);
+        }
+
+        .btn-menu {
+            background-color: transparent;
+            color: var(--texto-blanco);
+            border: 2px solid var(--texto-blanco);
+            font-size: 2rem;
+            padding: 5px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-menu:hover {
+            background-color: var(--texto-blanco);
+            color: var(--fondo-oscuro);
+        }
+
+        nav {
+            display: none; 
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--fondo-oscuro);
+            border-bottom: 3px solid var(--texto-blanco);
+        }
+
+        nav.menu-abierto {
+            display: block;
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        nav a {
+            display: block;
+            color: var(--texto-blanco);
+            text-decoration: none;
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            padding: 20px 5%;
+            border-top: 1px solid #333333;
+            transition: background-color 0.3s, color 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav a:hover { 
+            background-color: var(--texto-blanco);
+            color: var(--fondo-oscuro);
+        }
+
+        /* ==========================================
+           ESTRUCTURA DE SECCIONES
+           ========================================== */
+        .seccion {
+            padding: 80px 5%;
+            border-bottom: 2px solid #333333;
+            background-color: var(--fondo-oscuro);
+        }
+
+        .titulo-seccion {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .descripcion-seccion {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            color: var(--gris-texto);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--fondo-oscuro);
+            color: var(--texto-blanco);
+            padding: 12px 25px;
+            font-family: var(--fuente-titulos);
+            font-size: 1.3rem;
+            text-decoration: none;
+            border: 3px solid var(--texto-blanco);
+            box-shadow: 5px 5px 0px var(--texto-blanco);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px var(--naranja-oxido);
+            background-color: var(--texto-blanco);
+            color: var(--fondo-oscuro);
+            border-color: var(--texto-blanco);
+        }
+
+        /* ==========================================
+           PORTADA CENTRADA (HERO SECTION)
+           ========================================== */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 5%;
+            border-bottom: 4px solid var(--texto-blanco);
+            background-color: var(--fondo-oscuro);
+            min-height: 70vh; 
+        }
+
+        .hero-logo {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 30px;
+        }
+
+        .hero-titulo {
+            font-size: 6rem;
+            text-shadow: 4px 4px 0px #333333;
+            margin-bottom: 20px;
+            line-height: 1;
+            color: var(--texto-blanco);
+        }
+
+        .hero-descripcion {
+            font-size: 1.3rem;
+            color: var(--gris-texto);
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .caja-novedad {
+            padding: 25px;
+            border: 2px dashed var(--texto-blanco);
+            background-color: var(--fondo-oscuro);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           TEXTO QUIÉNES SOMOS
+           ========================================== */
+        .texto-filosofia {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--gris-texto);
+            font-size: 1.2rem;
+            text-align: justify;
+        }
+        
+        .texto-filosofia p {
+            margin-bottom: 20px;
+        }
+
+        /* ==========================================
+           GRID UNIVERSAL (Para Tienda, PDFs y Blog)
+           ========================================== */
+        .grid-contenido {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .tarjeta {
+            background-color: var(--fondo-oscuro);
+            color: var(--texto-blanco);
+            border: 4px solid var(--texto-blanco);
+            padding: 20px;
+            box-shadow: 8px 8px 0px var(--texto-blanco);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border: 3px solid var(--texto-blanco);
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 { font-size: 2.2rem; margin-bottom: 10px; line-height: 1; }
+        .tarjeta p { margin-bottom: 20px; font-size: 1rem; flex-grow: 1; color: var(--gris-texto); }
+        .tarjeta .precio { font-family: var(--fuente-titulos); font-size: 1.8rem; color: var(--naranja-oxido); margin-bottom: 15px; }
+
+        /* ==========================================
+           YOUTUBE SECTION
+           ========================================== */
+        .video-principal iframe {
+            width: 100%;
+            height: 60vh;
+            border: 4px solid var(--texto-blanco);
+            box-shadow: 10px 10px 0px var(--texto-blanco);
+        }
+
+        /* ==========================================
+           FORMULARIO DE CONTACTO
+           ========================================== */
+        .formulario {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .formulario input, .formulario textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--fondo-oscuro);
+            color: var(--texto-blanco);
+            border: 2px solid var(--texto-blanco);
+            font-family: var(--fuente-textos);
+            font-size: 1rem;
+        }
+
+        .formulario input:focus, .formulario textarea:focus {
+            outline: none;
+            border-color: var(--naranja-oxido);
+        }
+
+        /* ==========================================
+           NUEVO FOOTER EDITORIAL
+           ========================================== */
+        footer {
+            padding: 60px 5% 40px;
+            background-color: var(--fondo-oscuro);
+            border-top: 1px solid #333333;
+            font-family: var(--fuente-textos);
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* Logo y marca en el footer */
+        .footer-marca {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-marca img {
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .footer-marca-texto {
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            color: var(--texto-blanco);
+            letter-spacing: 1px;
+        }
+
+        .footer-copy {
+            font-size: 0.95rem;
+            color: var(--texto-blanco);
+            margin-bottom: 20px;
+        }
+
+        /* Icono Instagram */
+        .social-icons a {
+            display: inline-block;
+            color: var(--texto-blanco);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--naranja-oxido);
+            transform: translateY(-3px);
+        }
+
+        .social-icons svg {
+            width: 30px;
+            height: 30px;
+            fill: currentColor;
+        }
+
+        /* Datos de Contacto (Centro) */
+        .footer-contacto p {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            color: var(--texto-blanco);
+        }
+
+        .footer-link-red {
+            color: var(--rojo-sangre);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link-red:hover {
+            color: var(--naranja-oxido);
+        }
+
+        /* Enlaces Legales (Derecha) */
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--texto-blanco);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--naranja-oxido);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVEGACIÓN Y MENÚ HAMBURGUESA -->
+    <header>
+        <div class="header-grupo-izq">
+            <a href="#home" class="logo">
+                <img src="logo.png" alt="Icono Diablo Travieso">
+                DIABLO TRAVIESO
+            </a>
+            <!-- Botón de Quiénes Somos -->
+            <a href="#quienes-somos" class="btn-cabecera">¿Quiénes somos?</a>
+        </div>
+        
+        <!-- Botón de las 3 rayitas -->
+        <button id="botonMenu" class="btn-menu">☰</button>
+        
+        <nav id="menuDesplegable">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#tienda">Tienda</a></li>
+                <li><a href="#libreria">Librería del Terror</a></li>
+                <li><a href="#articulos">Artículos</a></li>
+                <li><a href="#youtube">YouTube</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. HOME (Logo Centrado y Novedades) -->
+    <section id="home" class="hero">
+        <img src="logo.png" alt="Logo Diablo Travieso" class="hero-logo">
+        <h1 class="hero-titulo">DIABLO TRAVIESO</h1>
+        
+        <p class="hero-descripcion">
+            <strong>Literatura Inquietante.</strong> Una editorial independiente nacida de la oscuridad y la imaginación. Nuestro espíritu reside en el folclor, el pensamiento crítico y la narrativa que te persigue cuando apagas la luz.
+        </p>
+        
+        <div class="caja-novedad">
+            <h3 style="font-size: 2rem; margin-bottom: 10px;">Última Novedad: El Grimorio Perdido</h3>
+            <p style="margin-bottom: 20px;">Nuestra publicación más reciente explora las raíces del terror folclórico con una colección de ensayos y relatos.</p>
+            <a href="#tienda" class="btn">Comprar Ahora</a>
+        </div>
+    </section>
+
+    <!-- 3. QUIÉNES SOMOS -->
+    <section id="quienes-somos" class="seccion">
+        <h2 class="titulo-seccion">Quiénes somos</h2>
+        <div class="texto-filosofia">
+            <p>Editorial Diablo Travieso es un espacio dedicado a la publicación de literatura que explora los territorios más inquietantes de la experiencia humana. Nos interesan las historias donde el horror, el misterio, el mito, la locura y lo cotidiano habitan juntos produciendo un tipo de realismo contaminado.</p>
+            <p>Creemos en la literatura independiente como un lugar de exploración y descubrimiento. Publicamos obras que buscan atravesar lo evidente, invitando a descubrir aquello que permanece oculto bajo la superficie de las palabras.</p>
+            <p>Además de nuestro catálogo impreso y digital, este espacio reúne ensayos sobre proceso creativo y contenido audiovisual que acompaña el proyecto editorial.</p>
+        </div>
+    </section>
+
+    <!-- 4. TIENDA (Libros Físicos/Comerciales) -->
+    <section id="tienda" class="seccion">
+        <h2 class="titulo-seccion">Tienda Editorial</h2>
+        <p class="descripcion-seccion">Explora nuestro catálogo de libros disponibles en formato físico. Aceptamos pagos seguros vía SINPE Móvil o transferencia bancaria directa.</p>
+        
+        <div class="grid-contenido">
+            <div class="tarjeta">
+                <img src="https://via.placeholder.com/300x450/000000/FFFFFF?text=PORTADA+LIBRO" alt="Libro 1">
+                <h3>Cuentos de la Cripta</h3>
+                <p>Una antología de relatos oscuros que exploran los miedos más profundos de la psique humana.</p>
+                <div class="precio">₡ 12,500</div>
+                <a href="https://wa.me/50686905151?text=Hola,%20quiero%20comprar%20Cuentos%20de%20la%20Cripta" target="_blank" class="btn" style="text-align: center;">Comprar por WhatsApp</a>
+            </div>
+            
+            <div class="tarjeta">
+                <img src="https://via.placeholder.com/300x450/000000/FFFFFF?text=PORTADA+LIBRO" alt="Libro 2">
+                <h3>El Folclor del Terror</h3>
+                <p>Investigación detallada sobre las leyendas urbanas y rurales que no te dejan dormir.</p>
+                <div class="precio">₡ 15,000</div>
+                <a href="https://wa.me/50686905151?text=Hola,%20quiero%20comprar%20El%20Folclor%20del%20Terror" target="_blank" class="btn" style="text-align: center;">Comprar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LIBRERÍA DEL TERROR (Descargas PDF) -->
+    <section id="libreria" class="seccion">
+        <h2 class="titulo-seccion">Librería del Terror</h2>
+        <p class="descripcion-seccion">Nuestra sección especial para los valientes. Descarga cuentos y relatos cortos en formato PDF para leer en la oscuridad.</p>
+        
+        <div class="grid-contenido">
+            <div class="tarjeta" style="border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
+                <h3 style="color: var(--rojo-sangre);">La Sonrisa del Diablo</h3>
+                <p>Cuento corto. Una narrativa inquietante sobre pactos que nunca debieron firmarse.</p>
+                <a href="cuento1.pdf" download class="btn" style="background-color: var(--texto-blanco); color: var(--fondo-oscuro); border-color: var(--texto-blanco); text-align: center;">Descargar PDF</a>
+            </div>
+            
+            <div class="tarjeta" style="border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
+                <h3 style="color: var(--rojo-sangre);">Ecos en la Niebla</h3>
+                <p>Relato inmersivo. Solo recomendado para lectores con nervios de acero.</p>
+                <a href="cuento2.pdf" download class="btn" style="background-color: var(--texto-blanco); color: var(--fondo-oscuro); border-color: var(--texto-blanco); text-align: center;">Descargar PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ARTÍCULOS (Blog) -->
+    <section id="articulos" class="seccion">
+        <h2 class="titulo-seccion">Pensamiento Crítico</h2>
+        <p class="descripcion-seccion">Textos, ensayos y reflexiones sobre la literatura independiente y el terror como espejo de la sociedad.</p>
+        
+        <div class="grid-contenido">
+            <article style="border: 2px solid var(--texto-blanco); padding: 30px; background-color: var(--fondo-oscuro);">
+                <h3 style="font-size: 2rem; margin-bottom: 15px;">¿Por qué nos gusta el terror?</h3>
+                <p style="color: var(--gris-texto); margin-bottom: 20px;">Un ensayo sobre la fascinación humana por lo macabro y cómo la literatura canaliza nuestros miedos primigenios.</p>
+                <a href="#" style="color: var(--texto-blanco); text-decoration: underline; font-family: var(--fuente-titulos); font-size: 1.2rem;">Leer artículo completo -></a>
+            </article>
+            <article style="border: 2px solid var(--texto-blanco); padding: 30px; background-color: var(--fondo-oscuro);">
+                <h3 style="font-size: 2rem; margin-bottom: 15px;">El Folclor como Advertencia</h3>
+                <p style="color: var(--gris-texto); margin-bottom: 20px;">Reflexión sobre las leyendas orales y su verdadero propósito en las comunidades antiguas.</p>
+                <a href="#" style="color: var(--texto-blanco); text-decoration: underline; font-family: var(--fuente-titulos); font-size: 1.2rem;">Leer artículo completo -></a>
+            </article>
+        </div>
+    </section>
+
+    <!-- 7. YOUTUBE -->
+    <section id="youtube" class="seccion">
+        <h2 class="titulo-seccion">Contenido Audiovisual</h2>
+        <p class="descripcion-seccion">Explora nuestro canal. Reseñas, análisis literarios y terror narrado.</p>
+        
+        <div class="video-principal">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- 8. CONTACTO -->
+    <section id="contacto" class="seccion">
+        <h2 class="titulo-seccion">Contacto</h2>
+        <p class="descripcion-seccion">¿Tienes manuscritos, dudas sobre envíos o quieres colaborar? Escríbenos desde las sombras.</p>
+        
+        <form class="formulario">
+            <input type="text" placeholder="Tu Nombre o Seudónimo" required>
+            <input type="email" placeholder="Tu Correo Electrónico" required>
+            <textarea rows="5" placeholder="Tu Mensaje..." required></textarea>
+            <button type="submit" class="btn" style="text-align: center; width: 100%;">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <!-- NUEVO FOOTER ESTILO EDITORIAL CLÁSICA -->
+    <footer>
+        <div class="footer-container">
+            <!-- Columna 1: Marca y Redes -->
+            <div class="footer-col">
+                <a href="#home" class="footer-marca">
+                    <img src="logo.png" alt="Logo Diablo Travieso">
+                    <span class="footer-marca-texto">DIABLO TRAVIESO</span>
+                </a>
+                <p class="footer-copy">&copy; 2026 Diablo Travieso Editorial<br>Web diseñada en Costa Rica</p>
+                
+                <div class="social-icons">
+                    <a href="https://instagram.com/diablotraviesoeditorial" target="_blank" aria-label="Instagram">
+                        <!-- Icono de Instagram en SVG puro -->
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Contacto -->
+            <div class="footer-col footer-contacto">
+                <p>Tarbaca, Aserrí, San José, Costa Rica</p>
+                <p>+506 8690 5151</p>
+                <a href="mailto:diablotraviesoeditorial@gmail.com" class="footer-link-red">diablotraviesoeditorial@gmail.com</a>
+            </div>
+
+            <!-- Columna 3: Enlaces -->
+            <div class="footer-col footer-links">
+                <ul>
+                    <li><a href="#tienda">Catálogo General</a></li>
+                    <li><a href="#quienes-somos">Nuestra Editorial</a></li>
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT PARA EL MENÚ HAMBURGUESA -->
+    <script>
+        const botonMenu = document.getElementById('botonMenu');
+        const menuDesplegable = document.getElementById('menuDesplegable');
+        const enlacesMenu = document.querySelectorAll('#menuDesplegable a');
+
+        botonMenu.addEventListener('click', function() {
+            menuDesplegable.classList.toggle('menu-abierto');
+        });
+
+        enlacesMenu.forEach(function(enlace) {
+            enlace.addEventListener('click', function() {
+                menuDesplegable.classList.remove('menu-abierto');
+            });
+        });
+    </script>
+
+</body>
+</html>

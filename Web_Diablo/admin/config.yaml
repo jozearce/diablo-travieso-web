@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main # Rama principal de tu repositorio
+
+media_folder: "imagenes" # Carpeta donde se guardarán las fotos que subas
+public_folder: "/imagenes"
+
+collections:
+  - name: "tienda"
+    label: "Libros de la Tienda"
+    folder: "datos/libros"
+    create: true
+    extension: "json"
+    format: "json"
+    fields:
+      - {label: "Título del Libro", name: "titulo", widget: "string"}
+      - {label: "Descripción", name: "descripcion", widget: "text"}
+      - {label: "Precio (Ej: 12,500)", name: "precio", widget: "string"}
+      - {label: "Foto de Portada", name: "imagen", widget: "image"}
+      - {label: "Enlace de WhatsApp", name: "whatsapp", widget: "string"}
