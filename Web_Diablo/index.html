@@ -219,10 +219,11 @@
         }
 
         .hero-descripcion {
-            font-size: 1.3rem;
-            color: var(--gris-texto);
+            font-size: 1.8rem; 
+            color: var(--texto-blanco); 
             max-width: 800px;
             margin-bottom: 40px;
+            font-style: italic;
         }
 
         .caja-novedad {
@@ -241,7 +242,7 @@
             margin: 0 auto;
             color: var(--gris-texto);
             font-size: 1.2rem;
-            text-align: justify;
+            text-align: center; 
         }
         
         .texto-filosofia p {
@@ -269,9 +270,10 @@
 
         .tarjeta img {
             width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border: 3px solid var(--texto-blanco);
+            height: auto;
+            max-height: 550px;
+            object-fit: contain;
+            border: none; 
             margin-bottom: 15px;
         }
 
@@ -339,7 +341,6 @@
             min-width: 250px;
         }
 
-        /* Logo y marca en el footer */
         .footer-marca {
             display: flex;
             align-items: center;
@@ -368,7 +369,6 @@
             margin-bottom: 20px;
         }
 
-        /* Icono Instagram */
         .social-icons a {
             display: inline-block;
             color: var(--texto-blanco);
@@ -386,7 +386,6 @@
             fill: currentColor;
         }
 
-        /* Datos de Contacto (Centro) */
         .footer-contacto p {
             margin-bottom: 12px;
             font-size: 1.1rem;
@@ -403,7 +402,6 @@
             color: var(--naranja-oxido);
         }
 
-        /* Enlaces Legales (Derecha) */
         .footer-links ul {
             list-style: none;
         }
@@ -433,11 +431,9 @@
                 <img src="logo.png" alt="Icono Diablo Travieso">
                 DIABLO TRAVIESO
             </a>
-            <!-- Botón de Quiénes Somos -->
             <a href="#quienes-somos" class="btn-cabecera">¿Quiénes somos?</a>
         </div>
         
-        <!-- Botón de las 3 rayitas -->
         <button id="botonMenu" class="btn-menu">☰</button>
         
         <nav id="menuDesplegable">
@@ -453,19 +449,19 @@
         </nav>
     </header>
 
-    <!-- 2. HOME (Logo Centrado y Novedades) -->
+    <!-- 2. HOME -->
     <section id="home" class="hero">
         <img src="logo.png" alt="Logo Diablo Travieso" class="hero-logo">
         <h1 class="hero-titulo">DIABLO TRAVIESO</h1>
         
         <p class="hero-descripcion">
-            <strong>Literatura Inquietante.</strong> Una editorial independiente nacida de la oscuridad y la imaginación. Nuestro espíritu reside en el folclor, el pensamiento crítico y la narrativa que te persigue cuando apagas la luz.
+            La literatura es una máquina de producir nuevos significados
         </p>
         
         <div class="caja-novedad">
-            <h3 style="font-size: 2rem; margin-bottom: 10px;">Última Novedad: El Grimorio Perdido</h3>
-            <p style="margin-bottom: 20px;">Nuestra publicación más reciente explora las raíces del terror folclórico con una colección de ensayos y relatos.</p>
-            <a href="#tienda" class="btn">Comprar Ahora</a>
+            <h3 style="font-size: 2rem; margin-bottom: 10px;">Última Novedad: La Vela Roja</h3>
+            <p style="margin-bottom: 20px;">Ya está disponible el primer número de nuestra Librería del Terror. Un relato corto de horror psicológico de Pablo García Brown. Descarga gratuita.</p>
+            <a href="#libreria" class="btn">Descargar Ahora</a>
         </div>
     </section>
 
@@ -479,53 +475,43 @@
         </div>
     </section>
 
-    <!-- 4. TIENDA (Libros Físicos/Comerciales) -->
+    <!-- 4. TIENDA OFICIAL -->
     <section id="tienda" class="seccion">
         <h2 class="titulo-seccion">Tienda Editorial</h2>
-        <p class="descripcion-seccion">Explora nuestro catálogo de libros disponibles en formato físico. Aceptamos pagos seguros vía SINPE Móvil o transferencia bancaria directa.</p>
+        <p class="descripcion-seccion">Adquiere nuestras publicaciones oficiales. Hacemos envíos internacionales vía Amazon o coordinamos entregas directas a través de WhatsApp.</p>
         
-        <div class="grid-contenido">
-            <div class="tarjeta">
-                <img src="https://via.placeholder.com/300x450/000000/FFFFFF?text=PORTADA+LIBRO" alt="Libro 1">
-                <h3>Cuentos de la Cripta</h3>
-                <p>Una antología de relatos oscuros que exploran los miedos más profundos de la psique humana.</p>
-                <div class="precio">₡ 12,500</div>
-                <a href="https://wa.me/50686905151?text=Hola,%20quiero%20comprar%20Cuentos%20de%20la%20Cripta" target="_blank" class="btn" style="text-align: center;">Comprar por WhatsApp</a>
-            </div>
-            
-            <div class="tarjeta">
-                <img src="https://via.placeholder.com/300x450/000000/FFFFFF?text=PORTADA+LIBRO" alt="Libro 2">
-                <h3>El Folclor del Terror</h3>
-                <p>Investigación detallada sobre las leyendas urbanas y rurales que no te dejan dormir.</p>
-                <div class="precio">₡ 15,000</div>
-                <a href="https://wa.me/50686905151?text=Hola,%20quiero%20comprar%20El%20Folclor%20del%20Terror" target="_blank" class="btn" style="text-align: center;">Comprar por WhatsApp</a>
+        <div style="display: flex; justify-content: center;">
+            <div class="tarjeta" style="max-width: 450px; width: 100%;">
+                <img src="portada la brujeria es pan del cielo.jpg" alt="Portada de La Brujería es Pan del Cielo">
+                <h3>La brujería es pan del cielo</h3>
+                <p><strong>Por Pablo García.</strong> Una publicación donde el horror, el misterio, el mito y lo cotidiano habitan juntos produciendo un tipo de realismo contaminado que no te dejará dormir.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+                    <a href="https://a.co/d/0aoCV2QH" target="_blank" class="btn" style="text-align: center; background-color: var(--texto-blanco); color: var(--fondo-oscuro);">Comprar en Amazon</a>
+                    <a href="https://wa.me/50686905151?text=Hola,%20quiero%20comprar%20el%20libro%20La%20brujer%C3%ADa%20es%20pan%20del%20cielo" target="_blank" class="btn" style="text-align: center;">Comprar por WhatsApp</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. LIBRERÍA DEL TERROR (Descargas PDF) -->
+    <!-- 5. LIBRERÍA DEL TERROR -->
     <section id="libreria" class="seccion">
         <h2 class="titulo-seccion">Librería del Terror</h2>
         <p class="descripcion-seccion">Nuestra sección especial para los valientes. Descarga cuentos y relatos cortos en formato PDF para leer en la oscuridad.</p>
         
-        <div class="grid-contenido">
-            <div class="tarjeta" style="border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
-                <h3 style="color: var(--rojo-sangre);">La Sonrisa del Diablo</h3>
-                <p>Cuento corto. Una narrativa inquietante sobre pactos que nunca debieron firmarse.</p>
-                <a href="cuento1.pdf" download class="btn" style="background-color: var(--texto-blanco); color: var(--fondo-oscuro); border-color: var(--texto-blanco); text-align: center;">Descargar PDF</a>
-            </div>
-            
-            <div class="tarjeta" style="border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
-                <h3 style="color: var(--rojo-sangre);">Ecos en la Niebla</h3>
-                <p>Relato inmersivo. Solo recomendado para lectores con nervios de acero.</p>
-                <a href="cuento2.pdf" download class="btn" style="background-color: var(--texto-blanco); color: var(--fondo-oscuro); border-color: var(--texto-blanco); text-align: center;">Descargar PDF</a>
+        <div style="display: flex; justify-content: center;">
+            <div class="tarjeta" style="max-width: 450px; width: 100%; border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
+                <img src="portada la vela roja.jpeg" alt="Portada de La Vela Roja">
+                <h3 style="color: var(--rojo-sangre);">La Vela Roja</h3>
+                <p>Un viaje familiar a Guanacaste se transforma en un oscuro descenso a la locura. Hipnotizado por una misteriosa vela roja, un padre experimenta una aterradora paz que lo arrastrará hacia un abismo psicológico sin retorno. Cuento corto. Descarga gratuita.</p>
+                <a href="La Vela Roja (DTLT N1).pdf" download class="btn" style="background-color: var(--texto-blanco); color: var(--fondo-oscuro); border-color: var(--texto-blanco); text-align: center;">Descargar PDF</a>
             </div>
         </div>
     </section>
 
-    <!-- 6. ARTÍCULOS (Blog) -->
+    <!-- 6. ARTÍCULOS -->
     <section id="articulos" class="seccion">
-        <h2 class="titulo-seccion">Pensamiento Crítico</h2>
+        <h2 class="titulo-seccion">La literatura como tecnología cultural de la imaginación</h2>
         <p class="descripcion-seccion">Textos, ensayos y reflexiones sobre la literatura independiente y el terror como espejo de la sociedad.</p>
         
         <div class="grid-contenido">
@@ -565,10 +551,9 @@
         </form>
     </section>
 
-    <!-- NUEVO FOOTER ESTILO EDITORIAL CLÁSICA -->
+    <!-- NUEVO FOOTER -->
     <footer>
         <div class="footer-container">
-            <!-- Columna 1: Marca y Redes -->
             <div class="footer-col">
                 <a href="#home" class="footer-marca">
                     <img src="logo.png" alt="Logo Diablo Travieso">
@@ -577,8 +562,8 @@
                 <p class="footer-copy">&copy; 2026 Diablo Travieso Editorial<br>Web diseñada en Costa Rica</p>
                 
                 <div class="social-icons">
-                    <a href="https://instagram.com/diablotraviesoeditorial" target="_blank" aria-label="Instagram">
-                        <!-- Icono de Instagram en SVG puro -->
+                    <!-- ENLACE DE INSTAGRAM ACTUALIZADO AQUÍ -->
+                    <a href="https://www.instagram.com/diablo_travieso_editorial/" target="_blank" aria-label="Instagram">
                         <svg viewBox="0 0 24 24">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                         </svg>
@@ -586,14 +571,12 @@
                 </div>
             </div>
 
-            <!-- Columna 2: Contacto -->
             <div class="footer-col footer-contacto">
                 <p>Tarbaca, Aserrí, San José, Costa Rica</p>
                 <p>+506 8690 5151</p>
                 <a href="mailto:diablotraviesoeditorial@gmail.com" class="footer-link-red">diablotraviesoeditorial@gmail.com</a>
             </div>
 
-            <!-- Columna 3: Enlaces -->
             <div class="footer-col footer-links">
                 <ul>
                     <li><a href="#tienda">Catálogo General</a></li>
@@ -605,7 +588,6 @@
         </div>
     </footer>
 
-    <!-- SCRIPT PARA EL MENÚ HAMBURGUESA -->
     <script>
         const botonMenu = document.getElementById('botonMenu');
         const menuDesplegable = document.getElementById('menuDesplegable');
