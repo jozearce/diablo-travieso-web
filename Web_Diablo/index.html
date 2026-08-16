@@ -34,6 +34,54 @@
         h1, h2, h3, h4 { font-family: var(--fuente-titulos); letter-spacing: 1.5px; font-weight: normal; color: var(--texto-blanco); }
 
         /* ==========================================
+           CONTENEDORES STICKER (CALIBRACIÓN PIXEL-PERFECT MASTER)
+           ========================================== */
+        .contenedor-logo-pequeno {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: var(--texto-blanco);
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contenedor-logo-pequeno img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center; 
+            /* MICRO-AJUSTE: -1% empuja a la izquierda, 3.5% empuja hacia abajo */
+            transform: scale(1.18) translate(-1%, 3.5%); 
+        }
+
+        .contenedor-logo-hero {
+            width: 350px;
+            height: 350px;
+            max-width: 85vw;
+            max-height: 85vw;
+            margin: 0 auto 30px auto;
+            border-radius: 50%;
+            background-color: var(--texto-blanco); 
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.9);
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center; 
+            /* MICRO-AJUSTE: -1% empuja a la izquierda, 3.5% empuja hacia abajo */
+            transform: scale(1.18) translate(-1%, 3.5%); 
+        }
+
+        /* ==========================================
            CABECERA Y MENÚ HAMBURGUESA
            ========================================== */
         header {
@@ -63,13 +111,6 @@
             display: flex;
             align-items: center;
             gap: 15px;
-        }
-
-        .logo img {
-            height: 55px;
-            width: 55px;
-            object-fit: cover;
-            border-radius: 50%;
         }
 
         .btn-cabecera {
@@ -202,14 +243,6 @@
             min-height: 70vh; 
         }
 
-        .hero-logo {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 30px;
-        }
-
         .hero-titulo {
             font-size: 6rem;
             text-shadow: 4px 4px 0px #333333;
@@ -230,7 +263,7 @@
             padding: 25px;
             border: 2px dashed var(--texto-blanco);
             background-color: var(--fondo-oscuro);
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
@@ -238,10 +271,11 @@
            TEXTO QUIÉNES SOMOS
            ========================================== */
         .texto-filosofia {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             color: var(--gris-texto);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            line-height: 1.8;
             text-align: center; 
         }
         
@@ -278,8 +312,30 @@
         }
 
         .tarjeta h3 { font-size: 2.2rem; margin-bottom: 10px; line-height: 1; }
-        .tarjeta p { margin-bottom: 20px; font-size: 1rem; flex-grow: 1; color: var(--gris-texto); }
-        .tarjeta .precio { font-family: var(--fuente-titulos); font-size: 1.8rem; color: var(--naranja-oxido); margin-bottom: 15px; }
+        
+        .detalles-libro {
+            background-color: #111111;
+            padding: 15px;
+            border-left: 4px solid var(--rojo-sangre);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: var(--gris-texto);
+            text-align: left;
+        }
+
+        .detalles-libro strong {
+            color: var(--texto-blanco);
+            font-family: var(--fuente-titulos);
+            letter-spacing: 1px;
+            font-size: 1.15rem;
+        }
+
+        .tarjeta-texto { 
+            margin-bottom: 15px; 
+            font-size: 1rem; 
+            color: var(--gris-texto); 
+            text-align: left;
+        }
 
         /* ==========================================
            YOUTUBE SECTION
@@ -349,11 +405,14 @@
             margin-bottom: 20px;
         }
 
-        .footer-marca img {
-            height: 50px;
-            width: 50px;
+        /* DISEÑO LIMPIO PARA EL LOGO DEL FOOTER */
+        .footer-marca .contenedor-logo-pequeno img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 50%;
+            object-position: center;
+            /* MICRO-AJUSTE: -1% empuja a la izquierda, 3.5% empuja hacia abajo */
+            transform: scale(1.18) translate(-1%, 3.5%); 
         }
 
         .footer-marca-texto {
@@ -428,14 +487,14 @@
     <header>
         <div class="header-grupo-izq">
             <a href="#home" class="logo">
-                <img src="logo.png" alt="Icono Diablo Travieso">
+                <div class="contenedor-logo-pequeno">
+                    <img src="logo.png" alt="Icono Diablo Travieso">
+                </div>
                 DIABLO TRAVIESO
             </a>
-            <!-- Botón de Quiénes Somos -->
             <a href="#quienes-somos" class="btn-cabecera">¿Quiénes somos?</a>
         </div>
         
-        <!-- Botón de las 3 rayitas -->
         <button id="botonMenu" class="btn-menu">☰</button>
         
         <nav id="menuDesplegable">
@@ -451,19 +510,20 @@
         </nav>
     </header>
 
-    <!-- 2. HOME (Logo Centrado y Novedades) -->
+    <!-- 2. HOME -->
     <section id="home" class="hero">
-        <img src="logo.png" alt="Logo Diablo Travieso" class="hero-logo">
+        <div class="contenedor-logo-hero">
+            <img src="logo.png" alt="Logo Diablo Travieso" class="hero-logo">
+        </div>
         <h1 class="hero-titulo">DIABLO TRAVIESO</h1>
         
         <p class="hero-descripcion">
             La literatura es una máquina de producir nuevos significados
         </p>
         
-        <!-- Novedad Actualizada -->
         <div class="caja-novedad">
             <h3 style="font-size: 2rem; margin-bottom: 10px;">Última Novedad: La Vela Roja</h3>
-            <p style="margin-bottom: 20px;">Ya está disponible el primer número de nuestra Librería del Terror. Un relato corto de horror psicológico de Pablo García Brown. Descarga gratuita.</p>
+            <p style="margin-bottom: 20px;">Librería del Terror abre con La Vela Roja, de Pablo García Brown. Un relato donde entender algo puede volver perturbadora la vida cotidiana.</p>
             <a href="#libreria" class="btn">Descargar Ahora</a>
         </div>
     </section>
@@ -472,25 +532,33 @@
     <section id="quienes-somos" class="seccion">
         <h2 class="titulo-seccion">Quiénes somos</h2>
         <div class="texto-filosofia">
-            <p>Editorial Diablo Travieso es un espacio dedicado a la publicación de literatura que explora los territorios más inquietantes de la experiencia humana. Nos interesan las historias donde el horror, el misterio, el mito, la locura y lo cotidiano habitan juntos produciendo un tipo de realismo contaminado.</p>
-            <p>Creemos en la literatura independiente como un lugar de exploración y descubrimiento. Publicamos obras que buscan atravesar lo evidente, invitando a descubrir aquello que permanece oculto bajo la superficie de las palabras.</p>
-            <p>Además de nuestro catálogo impreso y digital, este espacio reúne ensayos sobre proceso creativo y contenido audiovisual que acompaña el proyecto editorial.</p>
+            <p>Editorial Diablo Travieso es un espacio dedicado a la publicación de literatura que explora los territorios más inquietantes de la experiencia humana. Nos interesan las historias donde el horror, el misterio, el mito, la locura y lo cotidiano habitan juntos, produciendo un tipo de realismo contaminado.</p>
+            <p>Creemos en la literatura independiente como un lugar de exploración y descubrimiento. Publicamos obras que buscan atravesar lo evidente e invitan a descubrir aquello que permanece oculto bajo la superficie de las palabras.</p>
+            <p>Además de nuestro catálogo impreso y digital, este espacio reúne ensayos y reflexiones sobre literatura y procesos creativos, talleres de creación literaria y contenido audiovisual que amplía las distintas líneas del proyecto editorial.</p>
         </div>
     </section>
 
-    <!-- 4. TIENDA OFICIAL (ACTUALIZADA CON DOS LIBROS) -->
+    <!-- 4. TIENDA OFICIAL -->
     <section id="tienda" class="seccion">
         <h2 class="titulo-seccion">Tienda Editorial</h2>
         <p class="descripcion-seccion">Adquiere nuestras publicaciones oficiales. Hacemos envíos internacionales vía Amazon o coordinamos entregas directas a través de WhatsApp.</p>
         
-        <!-- Grid restaurado para mostrar los libros lado a lado -->
         <div class="grid-contenido">
             
             <!-- LIBRO 1 -->
             <div class="tarjeta">
                 <img src="portada la brujeria es pan del cielo.jpg" alt="Portada de La Brujería es Pan del Cielo">
                 <h3>La brujería es pan del cielo</h3>
-                <p><strong>Por Pablo García.</strong> Una publicación donde el horror, el misterio, el mito y lo cotidiano habitan juntos produciendo un tipo de realismo contaminado que no te dejará dormir.</p>
+                
+                <div class="detalles-libro">
+                    <strong>Autor:</strong> Pablo García Brown<br>
+                    <strong>Editorial:</strong> Diablo Travieso<br>
+                    <strong>Género:</strong> Terror contemporáneo / horror psicológico y sobrenatural<br>
+                    <strong>Relatos:</strong> 11
+                </div>
+                
+                <p class="tarjeta-texto"><strong style="color: white;">Descripción:</strong> Un viaje por los territorios del horror psicológico, lo sobrenatural y las fuerzas que habitan detrás de la realidad.</p>
+                <p class="tarjeta-texto"><strong style="color: white;">Temáticas:</strong> Ocultismo, rituales, percepción, locura y fuerzas desconocidas.</p>
                 
                 <div style="display: flex; flex-direction: column; gap: 15px; margin-top: auto; padding-top: 20px;">
                     <a href="https://a.co/d/0aoCV2QH" target="_blank" class="btn" style="text-align: center; background-color: var(--texto-blanco); color: var(--fondo-oscuro);">Comprar en Amazon</a>
@@ -498,11 +566,20 @@
                 </div>
             </div>
 
-            <!-- LIBRO 2 (NUEVO) -->
+            <!-- LIBRO 2 -->
             <div class="tarjeta">
                 <img src="aveces pasan cosas raras_.jpg" alt="Portada de A veces pasan cosas raras">
                 <h3>A veces pasan cosas raras</h3>
-                <p><strong>Por Pablo García.</strong> ¿Hasta dónde puede llegar lo inexplicable? Descubre una colección de narrativas donde la normalidad se quiebra para dejar entrar a la locura pura.</p>
+                
+                <div class="detalles-libro">
+                    <strong>Autor:</strong> Pablo García Brown<br>
+                    <strong>Editorial:</strong> Diablo Travieso<br>
+                    <strong>Género:</strong> Ficción oscura / horror psicológico / realismo extraño<br>
+                    <strong>Relatos:</strong> Colección de relatos
+                </div>
+                
+                <p class="tarjeta-texto"><strong style="color: white;">Descripción:</strong> La realidad es más extraña de lo que parece y la vida no siempre tiene sentido ni finales felices. Estos relatos son una prueba de ello.</p>
+                <p class="tarjeta-texto"><strong style="color: white;">Temáticas:</strong> Locura, enfermedad, amor, drogas, sueños, tecnología, folclore y relaciones humanas.</p>
                 
                 <div style="display: flex; flex-direction: column; gap: 15px; margin-top: auto; padding-top: 20px;">
                     <a href="https://www.amazon.com/dp/B0HBT979NR?ref_=quick_view_ref_tag" target="_blank" class="btn" style="text-align: center; background-color: var(--texto-blanco); color: var(--fondo-oscuro);">Comprar en Amazon</a>
@@ -513,22 +590,32 @@
         </div>
     </section>
 
-    <!-- 5. LIBRERÍA DEL TERROR (Descargas PDF) -->
+    <!-- 5. LIBRERÍA DEL TERROR -->
     <section id="libreria" class="seccion">
         <h2 class="titulo-seccion">Librería del Terror</h2>
-        <p class="descripcion-seccion">Nuestra sección especial para los valientes. Descarga cuentos y relatos cortos en formato PDF para leer en la oscuridad.</p>
+        <p class="descripcion-seccion">
+            Una colección de relatos digitales que abre las puertas a distintas voces del terror. Un cuento, un autor, una nueva forma de adentrarse en lo oscuro.<br><br>
+            Historias para descubrir. Autores para conocer. Terror al alcance de todos.
+        </p>
         
         <div style="display: flex; justify-content: center;">
-            <div class="tarjeta" style="max-width: 450px; width: 100%; border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
+            <div class="tarjeta" style="max-width: 550px; width: 100%; border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
                 <img src="portada la vela roja.jpeg" alt="Portada de La Vela Roja">
                 <h3 style="color: var(--rojo-sangre);">La Vela Roja</h3>
-                <p>Un viaje familiar a Guanacaste se transforma en un oscuro descenso a la locura. Hipnotizado por una misteriosa vela roja, un padre experimenta una aterradora paz que lo arrastrará hacia un abismo psicológico sin retorno. Cuento corto. Descarga gratuita.</p>
+                
+                <p style="text-align: justify; margin-bottom: 15px; color: var(--gris-texto); line-height: 1.6;">
+                    La Vela Roja es el primer número de Librería del Terror, una colección de relatos digitales publicados por Editorial Diablo Travieso. Un hombre viaja con su familia hacia Guanacaste para resolver unos trámites. En el camino atropella un mono. Después encuentra una iglesia solitaria al borde de la carretera. Algo lo espera en su interior.
+                </p>
+                <p style="text-align: justify; margin-bottom: 25px; color: var(--gris-texto); line-height: 1.6;">
+                    La Vela Roja es una historia sobre la certeza, la promesa y aquello que ya no puede ignorarse una vez que se sabe.
+                </p>
+
                 <a href="La Vela Roja (DTLT N1).pdf" download class="btn" style="background-color: var(--texto-blanco); color: var(--fondo-oscuro); border-color: var(--texto-blanco); text-align: center;">Descargar PDF</a>
             </div>
         </div>
     </section>
 
-    <!-- 6. ARTÍCULOS (Blog) -->
+    <!-- 6. ARTÍCULOS -->
     <section id="articulos" class="seccion">
         <h2 class="titulo-seccion">La literatura como tecnología cultural de la imaginación</h2>
         <p class="descripcion-seccion">Textos, ensayos y reflexiones sobre la literatura independiente y el terror como espejo de la sociedad.</p>
@@ -570,13 +657,14 @@
         </form>
     </section>
 
-    <!-- NUEVO FOOTER ESTILO EDITORIAL CLÁSICA -->
+    <!-- NUEVO FOOTER -->
     <footer>
         <div class="footer-container">
-            <!-- Columna 1: Marca y Redes -->
             <div class="footer-col">
                 <a href="#home" class="footer-marca">
-                    <img src="logo.png" alt="Logo Diablo Travieso">
+                    <div class="contenedor-logo-pequeno">
+                        <img src="logo.png" alt="Logo Diablo Travieso">
+                    </div>
                     <span class="footer-marca-texto">DIABLO TRAVIESO</span>
                 </a>
                 <p class="footer-copy">&copy; 2026 Diablo Travieso Editorial<br>Web diseñada en Costa Rica</p>
@@ -590,14 +678,12 @@
                 </div>
             </div>
 
-            <!-- Columna 2: Contacto -->
             <div class="footer-col footer-contacto">
                 <p>Tarbaca, Aserrí, San José, Costa Rica</p>
                 <p>+506 8690 5151</p>
                 <a href="mailto:diablotraviesoeditorial@gmail.com" class="footer-link-red">diablotraviesoeditorial@gmail.com</a>
             </div>
 
-            <!-- Columna 3: Enlaces -->
             <div class="footer-col footer-links">
                 <ul>
                     <li><a href="#tienda">Catálogo General</a></li>
@@ -609,7 +695,6 @@
         </div>
     </footer>
 
-    <!-- SCRIPT PARA EL MENÚ HAMBURGUESA -->
     <script>
         const botonMenu = document.getElementById('botonMenu');
         const menuDesplegable = document.getElementById('menuDesplegable');
