@@ -53,7 +53,6 @@
             height: 100%;
             object-fit: cover; 
             object-position: center; 
-            /* MICRO-AJUSTE: -1% empuja a la izquierda, 3.5% empuja hacia abajo */
             transform: scale(1.18) translate(-1%, 3.5%); 
         }
 
@@ -77,7 +76,6 @@
             height: 100%;
             object-fit: cover; 
             object-position: center; 
-            /* MICRO-AJUSTE: -1% empuja a la izquierda, 3.5% empuja hacia abajo */
             transform: scale(1.18) translate(-1%, 3.5%); 
         }
 
@@ -282,7 +280,7 @@
         }
 
         /* ==========================================
-           GRID UNIVERSAL (Para Tienda, PDFs y Blog)
+           GRID UNIVERSAL
            ========================================== */
         .grid-contenido {
             display: grid;
@@ -362,7 +360,7 @@
         }
 
         /* ==========================================
-           NUEVO FOOTER EDITORIAL
+           FOOTER
            ========================================== */
         footer {
             padding: 60px 5% 40px;
@@ -393,13 +391,11 @@
             margin-bottom: 20px;
         }
 
-        /* DISEÑO LIMPIO PARA EL LOGO DEL FOOTER */
         .footer-marca .contenedor-logo-pequeno img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
-            /* MICRO-AJUSTE: -1% empuja a la izquierda, 3.5% empuja hacia abajo */
             transform: scale(1.18) translate(-1%, 3.5%); 
         }
 
@@ -479,7 +475,7 @@
 </head>
 <body>
 
-    <!-- 1. NAVEGACIÓN Y MENÚ HAMBURGUESA -->
+    <!-- 1. NAVEGACIÓN -->
     <header>
         <div class="header-grupo-izq">
             <a href="#home" class="logo">
@@ -498,7 +494,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#quienes-somos">Quiénes Somos</a></li>
                 <li><a href="#tienda">Tienda</a></li>
-                <li><a href="#libreria">Librería del Terror</a></li>
+                <li><a href="libreria.html">Librería del Terror</a></li>
                 <li><a href="#articulos">Artículos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -517,8 +513,8 @@
         
         <div class="caja-novedad">
             <h3 style="font-size: 2rem; margin-bottom: 10px;">Última Novedad: El noveno piso</h3>
-            <p style="margin-bottom: 20px;">Librería del Terror continúa con "El noveno piso", de Andrey Ramírez Quirós. Un relato donde un edificio en construcción se convierte en el escenario de pesadillas y horrores insondables.</p>
-            <a href="#libreria" class="btn">Descargar Ahora</a>
+            <p style="margin-bottom: 20px;">El noveno piso es la segunda entrega de Librería del Terror. Un guarda nocturno recibe el encargo de vigilar un edificio en construcción...</p>
+            <a href="libreria.html" class="btn">Ver Novedad</a>
         </div>
     </section>
 
@@ -584,45 +580,35 @@
         </div>
     </section>
 
-    <!-- 5. LIBRERÍA DEL TERROR -->
+    <!-- 5. LIBRERÍA DEL TERROR (SOLO ÚLTIMA NOVEDAD Y LINK AL CATÁLOGO) -->
     <section id="libreria" class="seccion">
         <h2 class="titulo-seccion">Librería del Terror</h2>
         <p class="descripcion-seccion">
-            Una colección de relatos digitales que abre las puertas a distintas voces del terror. Un cuento, un autor, una nueva forma de adentrarse en lo oscuro.<br><br>
-            Historias para descubrir. Autores para conocer. Terror al alcance de todos.
+            Una colección de relatos digitales que abre las puertas a distintas voces del terror.
         </p>
         
-        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 40px;">
             
-            <!-- Cuento 1: La Vela Roja -->
-            <div class="tarjeta" style="max-width: 550px; width: 100%; flex: 1 1 300px; border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
-                <img src="portada la vela roja.jpeg" alt="Portada de La Vela Roja">
-                <h3 style="color: var(--rojo-sangre);">La Vela Roja</h3>
-                
-                <p style="text-align: justify; margin-bottom: 15px; color: var(--gris-texto); line-height: 1.6;">
-                    La Vela Roja es el primer número de Librería del Terror, una colección de relatos digitales publicados por Editorial Diablo Travieso. Un hombre viaja con su familia hacia Guanacaste para resolver unos trámites. En el camino atropella un mono. Después encuentra una iglesia solitaria al borde de la carretera. Algo lo espera en su interior.
-                </p>
-                <p style="text-align: justify; margin-bottom: 25px; color: var(--gris-texto); line-height: 1.6;">
-                    La Vela Roja es una historia sobre la certeza, la promesa y aquello que ya no puede ignorarse una vez que se sabe.
-                </p>
-
-                <a href="La Vela Roja (DTLT N1).pdf" download class="btn" style="background-color: var(--texto-blanco); color: var(--fondo-oscuro); border-color: var(--texto-blanco); text-align: center; margin-top: auto;">Descargar PDF</a>
-            </div>
-
-            <!-- Cuento 2: El noveno piso -->
-            <div class="tarjeta" style="max-width: 550px; width: 100%; flex: 1 1 300px; border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
+            <!-- Cuento destacado (El más reciente) -->
+            <div class="tarjeta" style="max-width: 550px; width: 100%; border-color: var(--rojo-sangre); box-shadow: 8px 8px 0px var(--rojo-sangre);">
                 <img src="portada el noveno piso.jpg" alt="Portada de El noveno piso">
                 <h3 style="color: var(--rojo-sangre);">El noveno piso</h3>
                 
                 <p style="text-align: justify; margin-bottom: 15px; color: var(--gris-texto); line-height: 1.6;">
-                    El noveno piso es el segundo número de Librería del Terror. Un guarda nocturno debe custodiar el esqueleto de hormigón y hierro de un edificio en construcción. Entre la soledad, el viento y las sombras, pronto descubrirá que no está solo en las alturas.
+                    El noveno piso es la segunda entrega de Librería del Terror.
+                </p>
+                <p style="text-align: justify; margin-bottom: 15px; color: var(--gris-texto); line-height: 1.6;">
+                    Un guarda nocturno recibe el encargo de vigilar un edificio en construcción. Durante su turno, recorre los pisos vacíos de una estructura de hormigón que parece abandonada. Sin embargo, conforme avanza la noche, comienza a sospechar que hay algo más en el edificio.
                 </p>
                 <p style="text-align: justify; margin-bottom: 25px; color: var(--gris-texto); line-height: 1.6;">
-                    Una escalofriante historia de Andrey Ramírez Quirós donde el aislamiento, las anomalías y el terror psicológico se entrelazan de manera magistral.
+                    Un relato de Andrey Ramírez Quirós donde la soledad de un hombre frente a lo desconocido se convierte en una experiencia cada vez más perturbadora.
                 </p>
 
                 <a href="El noveno piso (DTLT N2).pdf" download class="btn" style="background-color: var(--texto-blanco); color: var(--fondo-oscuro); border-color: var(--texto-blanco); text-align: center; margin-top: auto;">Descargar PDF</a>
             </div>
+
+            <!-- BOTÓN PARA ENTRAR AL CATÁLOGO -->
+            <a href="libreria.html" class="btn" style="font-size: 1.5rem; padding: 15px 30px; background-color: var(--rojo-sangre); border-color: var(--rojo-sangre); box-shadow: 5px 5px 0px var(--texto-blanco);">ENTRAR AL CATÁLOGO COMPLETO</a>
 
         </div>
     </section>
@@ -668,52 +654,4 @@
                 <div class="social-icons">
                     <a href="https://www.instagram.com/diablo_travieso_editorial/" target="_blank" aria-label="Instagram">
                         <svg viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                        </svg>
-                    </a>
-                    <a href="https://wa.me/50686905151" target="_blank" aria-label="WhatsApp">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <p class="footer-copy">&copy; 2026 Diablo Travieso Editorial<br>Web diseñada en Costa Rica<br>por Jose Daniel Arce 6383-2082</p>
-                
-            </div>
-
-            <div class="footer-col footer-contacto">
-                <p>Tarbaca, Aserrí, San José, Costa Rica</p>
-                <p>+506 8690 5151</p>
-                <a href="mailto:diablotraviesoeditorial@gmail.com" class="footer-link-red">diablotraviesoeditorial@gmail.com</a>
-            </div>
-
-            <div class="footer-col footer-links">
-                <ul>
-                    <li><a href="#tienda">Catálogo General</a></li>
-                    <li><a href="#quienes-somos">Nuestra Editorial</a></li>
-                    <li><a href="#">Aviso legal</a></li>
-                    <li><a href="#">Política de privacidad</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const botonMenu = document.getElementById('botonMenu');
-        const menuDesplegable = document.getElementById('menuDesplegable');
-        const enlacesMenu = document.querySelectorAll('#menuDesplegable a');
-
-        botonMenu.addEventListener('click', function() {
-            menuDesplegable.classList.toggle('menu-abierto');
-        });
-
-        enlacesMenu.forEach(function(enlace) {
-            enlace.addEventListener('click', function() {
-                menuDesplegable.classList.remove('menu-abierto');
-            });
-        });
-    </script>
-
-</body>
-</html>
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.
